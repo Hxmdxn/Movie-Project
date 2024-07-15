@@ -1,0 +1,86 @@
+body {
+    color: white; 
+    overflow-x:hidden;
+}
+
+#desc {
+    display: inline-flex;
+    font-weight: 500;
+    color: white;
+}
+
+#duration {
+    display: inline-block;
+}
+
+#year {
+    display: inline-flex;
+    font-weight: 500;
+    color: white;
+}
+
+p {
+    margin: 0; 
+}
+
+h5 {
+    color: white;
+}
+
+#genre {
+    font-weight: 600; 
+    color:grey
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.card {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-body .card-title {
+    margin-bottom: 5px;
+}
+
+.card-body .card-text {
+    margin-bottom: 2px;
+}
+.card-img-top{
+    transition: transform 0.1s ease-in-out;
+}
+.card-img-top:hover {
+    transform: scale(1.02);
+    filter: grayscale(80%);
+    cursor: pointer;
+}
+
+
+.poppins-light {
+    font-size: 50px;
+    font-weight: 100;
+   margin: 25px;
+    color:rgb(255, 255, 255);
+}
+  
+.nav-link{
+    color:white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 100;
+    
+}
+.nav-link:hover{
+    color:rgb(183, 172, 172);
+}
+
