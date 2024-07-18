@@ -1,11 +1,11 @@
-{% load static %}
+{%load static%}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="items/binge-flix.png">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="icon" href="{% static 'images/binge-flix.png' %}">
+  <link rel="stylesheet" href="{% static 'css/styles2.css' %}">
   <title>{% block title %}{% endblock title %}</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -26,9 +26,7 @@
             <a class="nav-link" href="#">
               <img src='items/binge-flix.png' alt="Logo" width="50" height="auto"></a>
           </li>          
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'movie_cards' %}">Home</a>
-        </li> 
+      
         <li class="nav-item">
           <a class="nav-link" href="#">Genres</a>
         </li>
@@ -36,7 +34,7 @@
           <a class="nav-link" href="#">Country</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Movies</a>
+          <a class="nav-link" href="{% url 'movie_cards' %}">Movies</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">TV-Series</a>
@@ -44,15 +42,38 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Top IMDB</a>
         </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Subscriptions</a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}" style="color:red;">Logout</a>
+        </li>
+        
+       
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signin' %}">Sign up</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+    {% endif %}
+
       </nav>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-       <input class="form-control mr-sm-2" type="search" placeholder="Find " aria-label="Search">
-       <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="background-color: transparent; border: none; color: white;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="white">
+      <form class="d-flex align-items-center" role="search">
+        {% if user.is_authenticated %}
+        <li class="nav-item list-unstyled me-3">
+            <a class="nav-link" href="#">Welcome {{ user.username }}!</a>
+        </li>
+        {% endif %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" style="background-color: transparent; border: none; color: white;">Search</button> 
+        {% comment %} <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24" fill="white">
           <!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
           <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-        </svg>
+        </svg> {% endcomment %}
       </button>
       
       </form>

@@ -7,6 +7,8 @@ class Cards(models.Model):
     desc=models.CharField(max_length=255)
     year=models.CharField(max_length=15)
     duration=models.CharField(max_length=15)
+    detailed_description=models.TextField(max_length=1000 ,blank=True)
+    lang=models.CharField(max_length=1000 ,blank=True)
 
 
     def __str__(self):

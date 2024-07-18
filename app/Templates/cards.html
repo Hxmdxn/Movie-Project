@@ -5,17 +5,19 @@
 
 <h1 class="poppins-light">Spotlight this month</h1>
 <div class="row">
-  {% for details in mov %}
-  <div class="card" style="width: 15rem; margin:15px; background-color:transparent;">
-    <img src={{details.img}} class="card-img-top" alt="Not found">
-    <div class="card-body">
-      <h5 class="card-title">{{details.name}}</h5>
-      <p class="card-text" id='desc'>{{details.desc}}</p>
-      <p class="card-text" id='year'> ({{details.year}})</p>
-      <h6><span class="badge badge-secondary" id='duration'>{{details.duration}}</span></h6>
-      <p class="card-text" id='genre' style="color:#393e46;">Genre - {{details.genre}}</p>
+    {% for details in mov %}
+    <div class="card" style="width: 15rem; margin:15px; background-color:transparent;">
+        <a href="{% url 'movie_details' details.id %}">
+            <img src="{{ details.img.url }}" class="card-img-top" alt="Not found">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">{{ details.name }}</h5>
+            <p class="card-text" id='desc'>{{ details.desc }}</p>
+            <p class="card-text" id='year'>({{ details.year }})</p>
+            <h6><span class="badge badge-secondary" id='duration'>{{ details.duration }}</span></h6>
+            <p class="card-text" id='genre' style="color:#393e46;">Genre - {{ details.genre }}</p>
+        </div>
     </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
 </div>
 {% endblock content %}
