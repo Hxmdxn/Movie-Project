@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
-{% block title %}Login{% endblock title %}
+{% block title %}Get back in{% endblock title %}
 {% block content %}
 {% load static %}
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+    }
+</style>
 
-
-<section class="vh-100" style="background-image: url('{% static 'images/movie bg.jpg' %}');">
+<section class="vh-100" style="background-image: url('{% static 'images/logo.png' %}');">
     <div class="container h-100">
+        
         <div class="row d-flex justify-content-center align-items-center h-100">
+            
             <div class="col-md-8 col-lg-6 col-xl-5">
+                
                 <div class="card text-black shadow-sm" style="border-radius: 15px;">
+                  
+
                     <div class="card-body p-md-4">
                         <p class="text-center h1 fw-bold mb-5 mt-4">Login</p>
                       
@@ -39,7 +52,8 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                                <p class="text-center">New here? <a href="{% url 'signin' %}">Sign up</a></p>
+                                <button type="submit" class="btn btn-primary btn-lg" style="background-color:black;border:none;">Login</button>
                             </div>
                         </form>
                     </div>

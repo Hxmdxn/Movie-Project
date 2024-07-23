@@ -128,6 +128,62 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -205,6 +261,38 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
         "documentation": {}
     },
     {
@@ -286,22 +374,6 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
-        "documentation": {}
-    },
-    {
-        "label": "static",
-        "importPath": "django.conf.urls.static",
-        "description": "django.conf.urls.static",
-        "isExtraImport": true,
-        "detail": "django.conf.urls.static",
         "documentation": {}
     },
     {
@@ -394,6 +466,42 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0009_alter_cards_img",
+        "description": "app.migrations.0009_alter_cards_img",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"app\", \"0008_cards_lang\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"cards\",\n            name=\"img\",\n            field=models.ImageField(upload_to=\"images\"),\n        ),",
+        "detail": "app.migrations.0009_alter_cards_img",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0010_imdb",
+        "description": "app.migrations.0010_imdb",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"app\", \"0009_alter_cards_img\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"imdb\",\n            fields=[\n                (\n                    \"id\",",
+        "detail": "app.migrations.0010_imdb",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0011_delete_imdb",
+        "description": "app.migrations.0011_delete_imdb",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"app\", \"0010_imdb\"),\n    ]\n    operations = [\n        migrations.DeleteModel(\n            name=\"imdb\",\n        ),\n    ]",
+        "detail": "app.migrations.0011_delete_imdb",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "app.migrations.0012_imdb",
+        "description": "app.migrations.0012_imdb",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"app\", \"0011_delete_imdb\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"imdb\",\n            fields=[\n                (\n                    \"id\",",
+        "detail": "app.migrations.0012_imdb",
+        "documentation": {}
+    },
+    {
         "label": "AppConfig",
         "kind": 6,
         "importPath": "app.apps",
@@ -407,7 +515,16 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Cards(models.Model):\n    img=models.ImageField(upload_to='items')\n    name=models.CharField(max_length=255)\n    genre=models.CharField(max_length=255)\n    desc=models.CharField(max_length=255)\n    year=models.CharField(max_length=15)\n    duration=models.CharField(max_length=15)\n    detailed_description=models.TextField(max_length=1000 ,blank=True)\n    lang=models.CharField(max_length=1000 ,blank=True)\n    def __str__(self):",
+        "peekOfCode": "class Cards(models.Model):\n    img=models.ImageField(upload_to='images')\n    name=models.CharField(max_length=255)\n    genre=models.CharField(max_length=255)\n    desc=models.CharField(max_length=255)\n    year=models.CharField(max_length=15)\n    duration=models.CharField(max_length=15)\n    detailed_description=models.TextField(max_length=1000 ,blank=True)\n    lang=models.CharField(max_length=1000 ,blank=True)\n    def __str__(self):",
+        "detail": "app.models",
+        "documentation": {}
+    },
+    {
+        "label": "imdb",
+        "kind": 6,
+        "importPath": "app.models",
+        "description": "app.models",
+        "peekOfCode": "class imdb(models.Model):\n    img=models.ImageField(upload_to='images')\n    name=models.CharField(max_length=255)\n    genre=models.CharField(max_length=255)\n    desc=models.CharField(max_length=255)\n    year=models.CharField(max_length=15)\n    duration=models.CharField(max_length=15)\n    detailed_description=models.TextField(max_length=1000 ,blank=True)\n    lang=models.CharField(max_length=1000 ,blank=True)\n    def __str__(self):",
         "detail": "app.models",
         "documentation": {}
     },
@@ -416,7 +533,7 @@
         "kind": 5,
         "importPath": "app.urls",
         "description": "app.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.home, name='home'),\n    path('movie_cards', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/',views.logout, name='logout'),\n]",
+        "peekOfCode": "urlpatterns = [\n    # path('', views.home, name='home'),\n    path('', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n     path('imdb_movie/<int:id>/', views.imdb_movie_details, name='imdb_movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/',views.logout, name='logout'),\n    path('search/', views.search_movies, name='search_movies'),\n]",
         "detail": "app.urls",
         "documentation": {}
     },
@@ -425,7 +542,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def home(request):\n    return render(request,'homepg.html')\ndef movie_cards(request):\n   mov=Cards.objects.all()\n   dict={\"mov\": mov}\n   return render(request,'cards.html',dict)\ndef movie_details(request,id):\n    movie = get_object_or_404(Cards, id=id)\n    d={'movie': movie}\n    return render(request, 'movie_details.html', d)",
+        "peekOfCode": "def home(request):\n    return render(request,'homepg.html')\ndef movie_cards(request):\n    mov = Cards.objects.all()\n    imdbb = imdb.objects.all()\n    context = {\n        'mov': mov,\n        'imdbb': imdbb,\n    }\n    return render(request, 'cards.html', context)",
         "detail": "app.views",
         "documentation": {}
     },
@@ -434,7 +551,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def movie_cards(request):\n   mov=Cards.objects.all()\n   dict={\"mov\": mov}\n   return render(request,'cards.html',dict)\ndef movie_details(request,id):\n    movie = get_object_or_404(Cards, id=id)\n    d={'movie': movie}\n    return render(request, 'movie_details.html', d)\ndef signin(request):\n    if request.method=='POST':",
+        "peekOfCode": "def movie_cards(request):\n    mov = Cards.objects.all()\n    imdbb = imdb.objects.all()\n    context = {\n        'mov': mov,\n        'imdbb': imdbb,\n    }\n    return render(request, 'cards.html', context)\ndef movie_details(request, id):\n    movie = get_object_or_404(Cards, id=id)",
         "detail": "app.views",
         "documentation": {}
     },
@@ -443,7 +560,16 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def movie_details(request,id):\n    movie = get_object_or_404(Cards, id=id)\n    d={'movie': movie}\n    return render(request, 'movie_details.html', d)\ndef signin(request):\n    if request.method=='POST':\n        name=request.POST.get('username')\n        email=request.POST.get('email')\n        password=request.POST.get('password')\n        repeat_password=request.POST.get('r_password')",
+        "peekOfCode": "def movie_details(request, id):\n    movie = get_object_or_404(Cards, id=id)\n    mov = Cards.objects.all()\n    context = {\n        'movie': movie,\n        'mov': mov,\n    }\n    return render(request, 'movie_details.html', context)\ndef imdb_movie_details(request, id):\n    movie = get_object_or_404(imdb, id=id)",
+        "detail": "app.views",
+        "documentation": {}
+    },
+    {
+        "label": "imdb_movie_details",
+        "kind": 2,
+        "importPath": "app.views",
+        "description": "app.views",
+        "peekOfCode": "def imdb_movie_details(request, id):\n    movie = get_object_or_404(imdb, id=id)\n    imdbb = imdb.objects.all()\n    mov = Cards.objects.all()\n    context = {\n        'moviee': movie,\n        'imdbb': imdbb,\n        'mov': mov,\n    }\n    return render(request, 'imdb_movie_details.html', context)",
         "detail": "app.views",
         "documentation": {}
     },
@@ -461,7 +587,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def login(request):\n    if request.method==\"POST\":\n        name=request.POST.get('username')\n        password=request.POST.get('password')\n        myuser=authenticate(username=name,password=password)\n        if myuser is not None:\n            auth_login(request,myuser)\n            messages.success(request,\"Login successful\")\n            return redirect(\"/movie_cards\")\n        else:",
+        "peekOfCode": "def login(request):\n    if request.method==\"POST\":\n        name=request.POST.get('username')\n        password=request.POST.get('password')\n        myuser=authenticate(username=name,password=password)\n        if myuser is not None:\n            auth_login(request,myuser)\n            messages.success(request,\"Login successful\")\n            return redirect('/')\n        else:",
         "detail": "app.views",
         "documentation": {}
     },
@@ -470,7 +596,16 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect(\"/movie_cards\")",
+        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect('/')\ndef search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
+        "detail": "app.views",
+        "documentation": {}
+    },
+    {
+        "label": "search_movies",
+        "kind": 2,
+        "importPath": "app.views",
+        "description": "app.views",
+        "peekOfCode": "def search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
         "detail": "app.views",
         "documentation": {}
     },
@@ -605,7 +740,7 @@
         "kind": 5,
         "importPath": "pr.settings",
         "description": "pr.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nimport os\nSTATIC_URL = 'static/'\nSTATICFILES_DIR=[\n    os.path.join(BASE_DIR,'static')\n]\n# Default primary key field type",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nimport os\nSTATIC_URL = 'static/'\nSTATICFILES_DIR=[\n    os.path.join(BASE_DIR,'static')\n]\nMEDIA_URL = '/media/'",
         "detail": "pr.settings",
         "documentation": {}
     },
@@ -614,7 +749,7 @@
         "kind": 5,
         "importPath": "pr.settings",
         "description": "pr.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nimport os\nSTATIC_URL = 'static/'\nSTATICFILES_DIR=[\n    os.path.join(BASE_DIR,'static')\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.0/howto/static-files/\nimport os\nSTATIC_URL = 'static/'\nSTATICFILES_DIR=[\n    os.path.join(BASE_DIR,'static')\n]\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')",
         "detail": "pr.settings",
         "documentation": {}
     },
@@ -623,7 +758,25 @@
         "kind": 5,
         "importPath": "pr.settings",
         "description": "pr.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIR=[\n    os.path.join(BASE_DIR,'static')\n]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATICFILES_DIR=[\n    os.path.join(BASE_DIR,'static')\n]\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "pr.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "pr.settings",
+        "description": "pr.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "pr.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "pr.settings",
+        "description": "pr.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "pr.settings",
         "documentation": {}
     },
@@ -641,7 +794,7 @@
         "kind": 5,
         "importPath": "pr.urls",
         "description": "pr.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path('',include('app.urls')),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)",
+        "peekOfCode": "urlpatterns = [\n    path(\"admin/\", admin.site.urls),\n    path('',include('app.urls')),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\n    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "pr.urls",
         "documentation": {}
     },

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .views import *
-from .models import *
+from .models import * 
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login,logout as auth_logout
@@ -9,15 +9,38 @@ def home(request):
     return render(request,'homepg.html')
 
 def movie_cards(request):
-   mov=Cards.objects.all()
-   dict={"mov": mov}
-   return render(request,'cards.html',dict)
-
-def movie_details(request,id):
+    mov = Cards.objects.all()
+    imdbb = imdb.objects.all()
+    
+    context = {
+        'mov': mov,
+        'imdbb': imdbb,
+    }
+    return render(request, 'cards.html', context)
+    
+    
+def movie_details(request, id):
     movie = get_object_or_404(Cards, id=id)
-    d={'movie': movie}
-    return render(request, 'movie_details.html', d)
+    mov = Cards.objects.all()
+    
+    context = {
+        'movie': movie,
+        'mov': mov,
+    }
+    return render(request, 'movie_details.html', context)
 
+def imdb_movie_details(request, id):
+    movie = get_object_or_404(imdb, id=id)
+    imdbb = imdb.objects.all()
+    mov = Cards.objects.all()
+    
+    
+    context = {
+        'moviee': movie,
+        'imdbb': imdbb,
+        'mov': mov,
+    }
+    return render(request, 'imdb_movie_details.html', context)
 
 def signin(request):
     if request.method=='POST':
@@ -59,7 +82,7 @@ def login(request):
         if myuser is not None:
             auth_login(request,myuser)
             messages.success(request,"Login successful")
-            return redirect("/movie_cards")
+            return redirect('/')
         else:
             messages.error(request,"Invalid credentials")
             return redirect("/login")
@@ -68,4 +91,12 @@ def login(request):
 def logout(request):
     auth_logout(request)
     messages.success(request,"Logged out successfully")
-    return redirect("/movie_cards")
+    return redirect('/')
+
+def search_movies(request):
+    query = request.GET.get('q')  
+    cards = Cards.objects.all() 
+    if query:
+        cards = Cards.objects.filter(name__icontains=query)  
+
+    return render(request, 'search.html', {'cards': cards, 'query': query})

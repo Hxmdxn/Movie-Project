@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Movie Details-{{movie.name}}{% endblock title %}
+{% block title %}Movie Details-{{moviee.name}}{% endblock title %}
 {% block content %}
 {% load static %}
 <style>
@@ -41,24 +41,24 @@
 
 <div class="movie-details-container">
     <div class="movie-details">
-        <h1 class="poppins-light" style="color:rgb(228, 191, 197);font-size:50px">{{ movie.name }} ({{ movie.year }})</h1>
-        <p class="poppins-light" style="font-size: 24px;" id="desc2">{{ movie.desc }} </p>
-        <img src="{{ movie.img.url }}" class="img-fluid" alt="{{ movie.name }}" style="max-width: 250px; height: auto; margin: 30px;">
-        <p><strong style="color:#98a2b2;">Duration: {{ movie.duration }}</strong></p>
-        <p><strong style="color:#98a2b2;">Genre: {{ movie.genre }}</strong></p>
-        <p><strong style="color:#98a2b2;">Language: {{ movie.lang }}</strong></p>
+        <h1 class="poppins-light" style="color:rgb(228, 191, 197);font-size:50px">{{moviee.name }} ({{moviee.year }})</h1>
+        <p class="poppins-light" style="font-size: 24px;" id="desc2">{{moviee.desc }} </p>
+        <img src="{{moviee.img.url }}" class="img-fluid" alt="{{movie.name }}" style="max-width: 250px; height: auto; margin: 30px;">
+        <p><strong style="color:#98a2b2;">Duration: {{moviee.duration }}</strong></p>
+        <p><strong style="color:#98a2b2;">Genre: {{moviee.genre }}</strong></p>
+        <p><strong style="color:#98a2b2;">Language: {{moviee.lang }}</strong></p>
     </div>
 
     <div class="detailed-description">
         <h3 class="poppins-thin">
-            {{ movie.detailed_description }}<br><br>
+            {{moviee.detailed_description }}<br><br>
             <button type="button" class="btn btn-outline-success">Watch Now</button> <button type="button" class="btn btn-outline-info">Download</button>
 
         </h3>
     </div> 
 </div>
 
-<h2 class="poppins-light" style="font-size:22px" id="sub-desc">  Subscribe to BingeFlix to watch {{ movie.name }} at $9.99   <button type="button" class="btn btn-outline-danger">Subscribe</button>
+<h2 class="poppins-light" style="font-size:22px" id="sub-desc">  Subscribe to BingeFlix to watch {{movie.name }} at $9.99   <button type="button" class="btn btn-outline-danger">Subscribe</button>
 
 </h2>
 <style>

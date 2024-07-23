@@ -1,8 +1,13 @@
 body {
     color: white; 
     overflow-x:hidden;
+    background-image: url('/static/images/sky wallpapaer.jpg');
+ 
 }
 
+html {
+    scroll-behavior: smooth;
+  }
 #desc {
     display: inline-flex;
     font-weight: 500;
@@ -79,7 +84,12 @@ h5 {
    margin: 25px;
     color:rgb(255, 255, 255);
 }
-  
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
   
 .nav-link{
     color:white;
@@ -90,4 +100,10 @@ h5 {
 }
 .nav-link:hover{
     color:rgb(183, 172, 172);
+}
+
+.nav-item.active .nav-link {
+    color:rgb(228, 191, 197);
+    font-weight: bold;
+   
 }

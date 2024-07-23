@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Search Results for "{{ query }}"</h1>
+    <ul class="list-group">
+        {% if cards %}
+            {% for card in cards %}
+                <li class="list-group-item">
+                    <h5>{{ card.name }}</h5>
+                    <p>{{ card.desc }}</p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <p>No results found for "{{ query }}"</p>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}
