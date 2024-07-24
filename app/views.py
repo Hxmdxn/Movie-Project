@@ -34,7 +34,7 @@ def imdb_movie_details(request, id):
     imdbb = imdb.objects.all()
     mov = Cards.objects.all()
     
-    
+
     context = {
         'moviee': movie,
         'imdbb': imdbb,
@@ -96,7 +96,9 @@ def logout(request):
 def search_movies(request):
     query = request.GET.get('q')  
     cards = Cards.objects.all() 
+    mov = Cards.objects.all()
+    
     if query:
         cards = Cards.objects.filter(name__icontains=query)  
 
-    return render(request, 'search.html', {'cards': cards, 'query': query})
+    return render(request, 'search.html', {'cards': cards, 'query': query, 'mov':mov})

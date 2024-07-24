@@ -533,7 +533,7 @@
         "kind": 5,
         "importPath": "app.urls",
         "description": "app.urls",
-        "peekOfCode": "urlpatterns = [\n    # path('', views.home, name='home'),\n    path('', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n     path('imdb_movie/<int:id>/', views.imdb_movie_details, name='imdb_movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/',views.logout, name='logout'),\n    path('search/', views.search_movies, name='search_movies'),\n]",
+        "peekOfCode": "urlpatterns = [\n    # path('', views.home, name='home'),\n    path('', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n     path('imdb_movie/<int:id>/', views.imdb_movie_details, name='imdb_movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/',views.logout, name='logout'),\n    path('search_movies/', views.search_movies, name='search_movies'),\n]",
         "detail": "app.urls",
         "documentation": {}
     },
@@ -596,7 +596,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect('/')\ndef search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
+        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect('/')\ndef search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    mov = Cards.objects.all()\n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  ",
         "detail": "app.views",
         "documentation": {}
     },
@@ -605,7 +605,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
+        "peekOfCode": "def search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    mov = Cards.objects.all()\n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query, 'mov':mov})",
         "detail": "app.views",
         "documentation": {}
     },

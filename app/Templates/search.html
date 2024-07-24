@@ -6,10 +6,18 @@
     <ul class="list-group">
         {% if cards %}
             {% for card in cards %}
-                <li class="list-group-item">
-                    <h5>{{ card.name }}</h5>
-                    <p>{{ card.desc }}</p>
-                </li>
+             <div class="card" style="width: 15rem; margin:15px; background-color:transparent;">
+        <a href="{% url 'movie_details' card.id %}">
+            <img src="{{ card.img.url }}" class="card-img-top" alt="Not found">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title">{{ card.name }}</h5>
+            <p class="card-text" id='desc'>{{ card.desc }}</p>
+            <p class="card-text" id='year'>({{ card.year }})</p>
+            <h6><span class="badge badge-secondary" id='duration'>{{ card.duration }}</span></h6>
+            <p class="card-text" id='genre' style="color:#98a2b2;">Genre - {{ card.genre }}</p>
+        </div>
+    </div>
             {% endfor %}
         {% else %}
             <p>No results found for "{{ query }}"</p>
