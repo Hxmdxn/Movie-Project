@@ -168,14 +168,6 @@
         "documentation": {}
     },
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -221,6 +213,22 @@
         "description": "django.contrib",
         "isExtraImport": true,
         "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "mark_safe",
+        "importPath": "django.utils.safestring",
+        "description": "django.utils.safestring",
+        "isExtraImport": true,
+        "detail": "django.utils.safestring",
+        "documentation": {}
+    },
+    {
+        "label": "mark_safe",
+        "importPath": "django.utils.safestring",
+        "description": "django.utils.safestring",
+        "isExtraImport": true,
+        "detail": "django.utils.safestring",
         "documentation": {}
     },
     {
@@ -486,19 +494,10 @@
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "app.migrations.0011_delete_imdb",
-        "description": "app.migrations.0011_delete_imdb",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"app\", \"0010_imdb\"),\n    ]\n    operations = [\n        migrations.DeleteModel(\n            name=\"imdb\",\n        ),\n    ]",
-        "detail": "app.migrations.0011_delete_imdb",
-        "documentation": {}
-    },
-    {
-        "label": "Migration",
-        "kind": 6,
-        "importPath": "app.migrations.0012_imdb",
-        "description": "app.migrations.0012_imdb",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"app\", \"0011_delete_imdb\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"imdb\",\n            fields=[\n                (\n                    \"id\",",
-        "detail": "app.migrations.0012_imdb",
+        "importPath": "app.migrations.0011_remove_cards_lang_remove_imdb_lang_alter_cards_desc_and_more",
+        "description": "app.migrations.0011_remove_cards_lang_remove_imdb_lang_alter_cards_desc_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"app\", \"0010_imdb\"),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name=\"cards\",\n            name=\"lang\",\n        ),\n        migrations.RemoveField(",
+        "detail": "app.migrations.0011_remove_cards_lang_remove_imdb_lang_alter_cards_desc_and_more",
         "documentation": {}
     },
     {
@@ -515,7 +514,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class Cards(models.Model):\n    img=models.ImageField(upload_to='images')\n    name=models.CharField(max_length=255)\n    genre=models.CharField(max_length=255)\n    desc=models.CharField(max_length=255)\n    year=models.CharField(max_length=15)\n    duration=models.CharField(max_length=15)\n    detailed_description=models.TextField(max_length=1000 ,blank=True)\n    lang=models.CharField(max_length=1000 ,blank=True)\n    def __str__(self):",
+        "peekOfCode": "class Cards(models.Model):\n    img=models.ImageField(upload_to='images')\n    name=models.CharField(max_length=255)\n    genre=models.CharField(max_length=255)\n    desc=models.TextField(max_length=1000)\n    year=models.CharField(max_length=15)\n    duration=models.CharField(max_length=15)\n    detailed_description=models.TextField(max_length=1000 ,blank=True)\n    # lang=models.CharField(max_length=1000 ,blank=True)\n    # director=models.CharField(max_length=1000 ,blank=True)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -524,7 +523,7 @@
         "kind": 6,
         "importPath": "app.models",
         "description": "app.models",
-        "peekOfCode": "class imdb(models.Model):\n    img=models.ImageField(upload_to='images')\n    name=models.CharField(max_length=255)\n    genre=models.CharField(max_length=255)\n    desc=models.CharField(max_length=255)\n    year=models.CharField(max_length=15)\n    duration=models.CharField(max_length=15)\n    detailed_description=models.TextField(max_length=1000 ,blank=True)\n    lang=models.CharField(max_length=1000 ,blank=True)\n    def __str__(self):",
+        "peekOfCode": "class imdb(models.Model):\n    img=models.ImageField(upload_to='images')\n    name=models.CharField(max_length=255)\n    genre=models.CharField(max_length=255)\n    desc=models.TextField(max_length=1000)\n    year=models.CharField(max_length=15)\n    duration=models.CharField(max_length=15)\n    detailed_description=models.TextField(max_length=1000 ,blank=True)\n    # lang2=models.CharField(max_length=1000 ,blank=True)\n    # director2=models.CharField(max_length=1000 ,blank=True)",
         "detail": "app.models",
         "documentation": {}
     },
@@ -533,7 +532,7 @@
         "kind": 5,
         "importPath": "app.urls",
         "description": "app.urls",
-        "peekOfCode": "urlpatterns = [\n    # path('', views.home, name='home'),\n    path('', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n     path('imdb_movie/<int:id>/', views.imdb_movie_details, name='imdb_movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/',views.logout, name='logout'),\n    path('search_movies/', views.search_movies, name='search_movies'),\n]",
+        "peekOfCode": "urlpatterns = [\n    # path('', views.home, name='home'),\n    path('', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n    path('imdb_movie/<int:id>/', views.imdb_movie_details, name='imdb_movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/',views.logout, name='logout'),\n    path('search/', views.search_movies, name='search_movies'),\n]",
         "detail": "app.urls",
         "documentation": {}
     },
@@ -560,7 +559,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def movie_details(request, id):\n    movie = get_object_or_404(Cards, id=id)\n    mov = Cards.objects.all()\n    context = {\n        'movie': movie,\n        'mov': mov,\n    }\n    return render(request, 'movie_details.html', context)\ndef imdb_movie_details(request, id):\n    movie = get_object_or_404(imdb, id=id)",
+        "peekOfCode": "def movie_details(request, id):\n    movie = get_object_or_404(Cards, id=id)\n    mov = Cards.objects.all()\n    movie.detailed_description=mark_safe(movie.detailed_description)\n    context = {\n        'movie': movie,\n        'mov': mov,\n    }\n    return render(request, 'movie_details.html', context)\ndef imdb_movie_details(request, id):",
         "detail": "app.views",
         "documentation": {}
     },
@@ -596,7 +595,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect('/')\ndef search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    mov = Cards.objects.all()\n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  ",
+        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect('/')\ndef search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
         "detail": "app.views",
         "documentation": {}
     },
@@ -605,7 +604,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    mov = Cards.objects.all()\n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query, 'mov':mov})",
+        "peekOfCode": "def search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
         "detail": "app.views",
         "documentation": {}
     },
@@ -632,7 +631,7 @@
         "kind": 5,
         "importPath": "pr.settings",
         "description": "pr.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-8is(+f3xsup&00u&#88=z7u(wlwr@oyqfy-o-it&n@qf#8&@fx'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-8is(+f3xsup&00u&#88=z7u(wlwr@oyqfy-o-it&n@qf#8&@fx'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',",
         "detail": "pr.settings",
         "documentation": {}
     },
@@ -641,7 +640,7 @@
         "kind": 5,
         "importPath": "pr.settings",
         "description": "pr.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',",
         "detail": "pr.settings",
         "documentation": {}
     },
@@ -650,7 +649,7 @@
         "kind": 5,
         "importPath": "pr.settings",
         "description": "pr.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'app'",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "pr.settings",
         "documentation": {}
     },
@@ -659,7 +658,7 @@
         "kind": 5,
         "importPath": "pr.settings",
         "description": "pr.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'app'\n]\nMIDDLEWARE = [",
+        "peekOfCode": "INSTALLED_APPS = [\n    'jazzmin',\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'app'\n]",
         "detail": "pr.settings",
         "documentation": {}
     },

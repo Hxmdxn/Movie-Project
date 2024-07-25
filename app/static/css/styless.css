@@ -38,13 +38,19 @@ h5 {
     color:grey
 }
 
+/* .containerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+} */
 .row {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: 10px;
     padding: 20px;
 }
-
 .card {
     background-color: transparent;
     cursor: pointer;

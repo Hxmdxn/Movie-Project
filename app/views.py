@@ -4,6 +4,7 @@ from .models import *
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login,logout as auth_logout
+from django.utils.safestring import mark_safe
 
 def home(request):
     return render(request,'homepg.html')
@@ -22,6 +23,7 @@ def movie_cards(request):
 def movie_details(request, id):
     movie = get_object_or_404(Cards, id=id)
     mov = Cards.objects.all()
+    movie.detailed_description=mark_safe(movie.detailed_description)
     
     context = {
         'movie': movie,
@@ -96,9 +98,8 @@ def logout(request):
 def search_movies(request):
     query = request.GET.get('q')  
     cards = Cards.objects.all() 
-    mov = Cards.objects.all()
-    
+
     if query:
         cards = Cards.objects.filter(name__icontains=query)  
 
-    return render(request, 'search.html', {'cards': cards, 'query': query, 'mov':mov})
+    return render(request, 'search.html', {'cards': cards, 'query': query})
