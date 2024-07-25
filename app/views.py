@@ -96,10 +96,18 @@ def logout(request):
     return redirect('/')
 
 def search_movies(request):
-    query = request.GET.get('q')  
-    cards = Cards.objects.all() 
+    query = request.GET.get('q', '')
+    mov = Cards.objects.all()
+    imdbb = imdb.objects.all()
 
     if query:
-        cards = Cards.objects.filter(name__icontains=query)  
+        mov = Cards.objects.filter(name__icontains=query)
+        imdbb = imdb.objects.filter(name__icontains=query)
 
-    return render(request, 'search.html', {'cards': cards, 'query': query})
+    context = {
+        'mov': mov,
+        'query': query,
+        'imdbb': imdbb,
+    }
+    
+    return render(request, 'search.html', context)

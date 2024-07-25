@@ -3,24 +3,49 @@
 {% block content %}
 <div class="container">
     <h1>Search Results for "{{ query }}"</h1>
+
+    <h2>Movies</h2>
     <ul class="list-group">
-        {% if cards %}
-            {% for card in cards %}
-             <div class="card" style="width: 15rem; margin:15px; background-color:transparent;">
-        <a href="{% url 'movie_details' card.id %}">
-            <img src="{{ card.img.url }}" class="card-img-top" alt="Not found">
-        </a>
-        <div class="card-body">
-            <h5 class="card-title">{{ card.name }}</h5>
-            <p class="card-text" id='desc'>{{ card.desc }}</p>
-            <p class="card-text" id='year'>({{ card.year }})</p>
-            <h6><span class="badge badge-secondary" id='duration'>{{ card.duration }}</span></h6>
-            <p class="card-text" id='genre' style="color:#98a2b2;">Genre - {{ card.genre }}</p>
-        </div>
-    </div>
+        {% if mov %}
+            {% for card in mov %}
+                <div class="card" style="width: 15rem; margin:15px; background-color:transparent;">
+                    <a href="{% url 'movie_details' card.id %}">
+                        <img src="{{ card.img.url }}" class="card-img-top" alt="Not found">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ card.name }}</h5>
+                        <p class="card-text" id='desc'>{{ card.desc }}</p>
+                        <p class="card-text" id='year'>({{ card.year }})</p>
+                        <h6><span class="badge badge-secondary" id='duration'>{{ card.duration }}</span></h6>
+                        <p class="card-text" id='genre' style="color:#98a2b2;">Genre - {{ card.genre }}</p>
+                    </div>
+                </div>
             {% endfor %}
         {% else %}
-            <p>No results found for "{{ query }}"</p>
+            <p>No results found for "{{ query }}" in movies.</p>
+        {% endif %}
+    </ul>
+
+   
+    <ul class="list-group">
+        {% if imdbb %}
+        <h2>IMDB</h2>
+            {% for movie in imdbb %}
+                <div class="card" style="width: 15rem; margin:15px; background-color:transparent;">
+                    <a href="{% url 'imdb_movie_details' movie.id %}">
+                        <img src="{{ movie.img.url }}" class="card-img-top" alt="Not found">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie.name }}</h5>
+                        <p class="card-text" id='desc'>{{ movie.desc }}</p>
+                        <p class="card-text" id='year'>({{ movie.year }})</p>
+                        <h6><span class="badge badge-secondary" id='duration'>{{ movie.duration }}</span></h6>
+                        <p class="card-text" id='genre' style="color:#98a2b2;">Genre - {{ movie.genre }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No results found for "{{ query }}" in IMDB.</p>
         {% endif %}
     </ul>
 </div>

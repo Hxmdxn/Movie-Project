@@ -595,7 +595,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect('/')\ndef search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
+        "peekOfCode": "def logout(request):\n    auth_logout(request)\n    messages.success(request,\"Logged out successfully\")\n    return redirect('/')\ndef search_movies(request):\n    query = request.GET.get('q', '')\n    mov = Cards.objects.all()\n    imdbb = imdb.objects.all()\n    if query:\n        mov = Cards.objects.filter(name__icontains=query)",
         "detail": "app.views",
         "documentation": {}
     },
@@ -604,7 +604,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def search_movies(request):\n    query = request.GET.get('q')  \n    cards = Cards.objects.all() \n    if query:\n        cards = Cards.objects.filter(name__icontains=query)  \n    return render(request, 'search.html', {'cards': cards, 'query': query})",
+        "peekOfCode": "def search_movies(request):\n    query = request.GET.get('q', '')\n    mov = Cards.objects.all()\n    imdbb = imdb.objects.all()\n    if query:\n        mov = Cards.objects.filter(name__icontains=query)\n        imdbb = imdb.objects.filter(name__icontains=query)\n    context = {\n        'mov': mov,\n        'query': query,",
         "detail": "app.views",
         "documentation": {}
     },
