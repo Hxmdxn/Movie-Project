@@ -192,14 +192,6 @@
         "documentation": {}
     },
     {
-        "label": "admin",
-        "importPath": "django.contrib",
-        "description": "django.contrib",
-        "isExtraImport": true,
-        "detail": "django.contrib",
-        "documentation": {}
-    },
-    {
         "label": "messages",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -532,7 +524,7 @@
         "kind": 5,
         "importPath": "app.urls",
         "description": "app.urls",
-        "peekOfCode": "urlpatterns = [\n    # path('', views.home, name='home'),\n    path('', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n    path('imdb_movie/<int:id>/', views.imdb_movie_details, name='imdb_movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/',views.logout, name='logout'),\n    path('search/', views.search_movies, name='search_movies'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.movie_cards, name='movie_cards'),\n    path('movie/<int:id>/', views.movie_details, name='movie_details'),\n    path('imdb_movie/<int:id>/', views.imdb_movie_details, name='imdb_movie_details'),\n    path('signin/', views.signin, name='signin'),\n    path('login/', views.login, name='login'),\n    path('logout/', views.logout, name='logout'),\n    path('search/', views.search_movies, name='search_movies'),\n]\nif settings.DEBUG:",
         "detail": "app.urls",
         "documentation": {}
     },
@@ -568,7 +560,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def imdb_movie_details(request, id):\n    movie = get_object_or_404(imdb, id=id)\n    imdbb = imdb.objects.all()\n    mov = Cards.objects.all()\n    context = {\n        'moviee': movie,\n        'imdbb': imdbb,\n        'mov': mov,\n    }\n    return render(request, 'imdb_movie_details.html', context)",
+        "peekOfCode": "def imdb_movie_details(request, id):\n    movie = get_object_or_404(imdb, id=id)\n    imdbb = imdb.objects.all()\n    mov = Cards.objects.all()\n    movie.detailed_description=mark_safe(movie.detailed_description)\n    context = {\n        'moviee': movie,\n        'imdbb': imdbb,\n        'mov': mov,\n    }",
         "detail": "app.views",
         "documentation": {}
     },

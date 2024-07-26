@@ -35,6 +35,7 @@ def imdb_movie_details(request, id):
     movie = get_object_or_404(imdb, id=id)
     imdbb = imdb.objects.all()
     mov = Cards.objects.all()
+    movie.detailed_description=mark_safe(movie.detailed_description)
     
 
     context = {
